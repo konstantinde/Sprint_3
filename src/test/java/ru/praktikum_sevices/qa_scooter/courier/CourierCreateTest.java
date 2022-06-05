@@ -36,11 +36,15 @@ public class CourierCreateTest {
     @After
     public void tearDown() {
         // удаляем пользователя, только в тех тестах, где он был создан и есть логин и пароль для логина в системе
-        if (courier.getLogin() != null && courier.getPassword() != null) {
-            ValidatableResponse loginResponse = courierClient.login(new CourierCredentials(courier.getLogin(),
-                    courier.getPassword()));
-            courierId = loginResponse.extract().path("id");
-            courierClient.delete(courierId);
+        try {
+            if (courier.getLogin() != null && courier.getPassword() != null) {
+                ValidatableResponse loginResponse = courierClient.login(new CourierCredentials(courier.getLogin(),
+                        courier.getPassword()));
+                courierId = loginResponse.extract().path("id");
+                courierClient.delete(courierId);
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Курьер не был создан или что-то случилось.");
         }
 
     }
@@ -51,7 +55,7 @@ public class CourierCreateTest {
         ValidatableResponse createResponse = courierClient.create(courier);
         CreateCourierResponse createCourierResponse = createResponse.extract().as(CreateCourierResponse.class);
 
-        assertThat("Статус код не 200", createResponse.extract().statusCode(), equalTo(SC_CREATED));
+        assertThat("Статус код не 201", createResponse.extract().statusCode(), equalTo(SC_CREATED));
         assertTrue("Значение 'ok' в ответе не true", createCourierResponse.getOk());
     }
 
@@ -65,7 +69,7 @@ public class CourierCreateTest {
         ErrorResponse errorResponse = createResponse.extract().as(ErrorResponse.class);
 
         assertThat("Статус код не 400", createResponse.extract().statusCode(), equalTo(SC_BAD_REQUEST));
-        assertThat("Неправильный текст ошибки", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
+        assertThat("Ожидаемый текст не соответствует фактическому", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
     }
 
     @Test
@@ -78,7 +82,7 @@ public class CourierCreateTest {
         ErrorResponse errorResponse = createResponse.extract().as(ErrorResponse.class);
 
         assertThat("Статус код не 400", createResponse.extract().statusCode(), equalTo(SC_BAD_REQUEST));
-        assertThat("Неправильный текст ошибки", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
+        assertThat("Ожидаемый текст не соответствует фактическому", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
     }
 
     @Test
@@ -91,7 +95,7 @@ public class CourierCreateTest {
         ErrorResponse errorResponse = createResponse.extract().as(ErrorResponse.class);
 
         assertThat("Статус код не 400", createResponse.extract().statusCode(), equalTo(SC_BAD_REQUEST));
-        assertThat("Неправильный текст ошибки", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
+        assertThat("Ожидаемый текст не соответствует фактическому", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
     }
 
     @Test
@@ -103,7 +107,7 @@ public class CourierCreateTest {
         ErrorResponse errorResponse = createResponse.extract().as(ErrorResponse.class);
 
         assertThat("Статус код не 400", createResponse.extract().statusCode(), equalTo(SC_BAD_REQUEST));
-        assertThat("Неправильный текст ошибки", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
+        assertThat("Ожидаемый текст не соответствует фактическому", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
     }
 
     @Test
@@ -115,7 +119,7 @@ public class CourierCreateTest {
         ErrorResponse errorResponse = createResponse.extract().as(ErrorResponse.class);
 
         assertThat("Статус код не 400", createResponse.extract().statusCode(), equalTo(SC_BAD_REQUEST));
-        assertThat("Неправильный текст ошибки", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
+        assertThat("Ожидаемый текст не соответствует фактическому", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
     }
 
     @Test
@@ -127,7 +131,7 @@ public class CourierCreateTest {
         ErrorResponse errorResponse = createResponse.extract().as(ErrorResponse.class);
 
         assertThat("Статус код не 400", createResponse.extract().statusCode(), equalTo(SC_BAD_REQUEST));
-        assertThat("Неправильный текст ошибки", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
+        assertThat("Ожидаемый текст не соответствует фактическому", errorResponse.getMessage(), equalTo(NO_DATA_FOR_CREATE));
     }
 
     @Test
@@ -141,7 +145,7 @@ public class CourierCreateTest {
         ErrorResponse errorResponse = createResponse.extract().as(ErrorResponse.class);
 
         assertThat("Статус код не 409", createResponse.extract().statusCode(), equalTo(SC_CONFLICT));
-        assertThat("Неправильный текст ошибки", errorResponse.getMessage(), equalTo(THIS_LOGIN_IS_USED));
+        assertThat("Ожидаемый текст не соответствует фактическому", errorResponse.getMessage(), equalTo(THIS_LOGIN_IS_USED));
     }
 
 
@@ -160,7 +164,7 @@ public class CourierCreateTest {
         ErrorResponse errorResponse = createResponse.extract().as(ErrorResponse.class);
 
         assertThat("Статус код не 409", createResponse.extract().statusCode(), equalTo(SC_CONFLICT));
-        assertThat("Неправильный текст ошибки", errorResponse.getMessage(), equalTo(THIS_LOGIN_IS_USED));
+        assertThat("Ожидаемый текст не соответствует фактическому", errorResponse.getMessage(), equalTo(THIS_LOGIN_IS_USED));
     }
 
 }
