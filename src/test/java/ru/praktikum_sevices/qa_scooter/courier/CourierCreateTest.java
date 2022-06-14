@@ -46,7 +46,6 @@ public class CourierCreateTest {
         } catch (NullPointerException e) {
             System.out.println("Курьер не был создан или что-то случилось.");
         }
-
     }
 
     @Test
