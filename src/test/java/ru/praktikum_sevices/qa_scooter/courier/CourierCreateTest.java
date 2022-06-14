@@ -147,7 +147,6 @@ public class CourierCreateTest {
         assertThat("Ожидаемый текст не соответствует фактическому", errorResponse.getMessage(), equalTo(THIS_LOGIN_IS_USED));
     }
 
-
     @Test
     @Description("Нельзя создать курьера с логином, который уже есть в системе")
     public void shouldNotBeCreateCourierIfLoginIsAlready() {
@@ -165,5 +164,4 @@ public class CourierCreateTest {
         assertThat("Статус код не 409", createResponse.extract().statusCode(), equalTo(SC_CONFLICT));
         assertThat("Ожидаемый текст не соответствует фактическому", errorResponse.getMessage(), equalTo(THIS_LOGIN_IS_USED));
     }
-
 }
