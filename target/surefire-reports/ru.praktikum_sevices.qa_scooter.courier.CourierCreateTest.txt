@@ -1,0 +1,25 @@
+-------------------------------------------------------------------------------
+Test set: ru.praktikum_sevices.qa_scooter.courier.CourierCreateTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 7.996 s <<< FAILURE! - in ru.praktikum_sevices.qa_scooter.courier.CourierCreateTest
+shouldNotBeCreateDoubleCourier(ru.praktikum_sevices.qa_scooter.courier.CourierCreateTest)  Time elapsed: 5.072 s  <<< FAILURE!
+java.lang.AssertionError: 
+Ожидаемый текст не соответствует фактическому
+Expected: "Этот логин уже используется"
+     but: was "Этот логин уже используется. Попробуйте другой."
+	at ru.praktikum_sevices.qa_scooter.courier.CourierCreateTest.shouldNotBeCreateDoubleCourier(CourierCreateTest.java:148)
+
+shouldNotBeCreateCourierIfLoginIsAlready(ru.praktikum_sevices.qa_scooter.courier.CourierCreateTest)  Time elapsed: 0.735 s  <<< FAILURE!
+java.lang.AssertionError: 
+Ожидаемый текст не соответствует фактическому
+Expected: "Этот логин уже используется"
+     but: was "Этот логин уже используется. Попробуйте другой."
+	at ru.praktikum_sevices.qa_scooter.courier.CourierCreateTest.shouldNotBeCreateCourierIfLoginIsAlready(CourierCreateTest.java:167)
+
+shouldNotBeCreateCourierWithoutFirstName(ru.praktikum_sevices.qa_scooter.courier.CourierCreateTest)  Time elapsed: 0.532 s  <<< FAILURE!
+java.lang.AssertionError: 
+Статус код не 400
+Expected: <400>
+     but: was <201>
+	at ru.praktikum_sevices.qa_scooter.courier.CourierCreateTest.shouldNotBeCreateCourierWithoutFirstName(CourierCreateTest.java:133)
+

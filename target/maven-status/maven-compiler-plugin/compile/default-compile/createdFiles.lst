@@ -1,0 +1,13 @@
+ru\praktikum_sevices\qa_scooter\clients\CourierClient.class
+ru\praktikum_sevices\qa_scooter\model\orders\CreateOrderResponse.class
+ru\praktikum_sevices\qa_scooter\model\courier\Courier.class
+ru\praktikum_sevices\qa_scooter\model\ErrorResponse.class
+ru\praktikum_sevices\qa_scooter\model\orders\PageInfo.class
+ru\praktikum_sevices\qa_scooter\clients\BaseRestClient.class
+ru\praktikum_sevices\qa_scooter\helpers\CourierGenerator.class
+ru\praktikum_sevices\qa_scooter\clients\OrdersClient.class
+ru\praktikum_sevices\qa_scooter\model\orders\Orders.class
+ru\praktikum_sevices\qa_scooter\model\orders\AvailableStations.class
+ru\praktikum_sevices\qa_scooter\model\courier\CourierCredentials.class
+ru\praktikum_sevices\qa_scooter\model\courier\CreateCourierResponse.class
+ru\praktikum_sevices\qa_scooter\model\orders\Order.class

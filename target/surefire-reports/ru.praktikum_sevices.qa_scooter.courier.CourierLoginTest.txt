@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: ru.praktikum_sevices.qa_scooter.courier.CourierLoginTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 126.248 s <<< FAILURE! - in ru.praktikum_sevices.qa_scooter.courier.CourierLoginTest
+shouldNotBeLoginWithoutLoginAndPassword(ru.praktikum_sevices.qa_scooter.courier.CourierLoginTest)  Time elapsed: 60.662 s  <<< FAILURE!
+java.lang.AssertionError: 
+Статус код не 400
+Expected: <400>
+     but: was <504>
+	at ru.praktikum_sevices.qa_scooter.courier.CourierLoginTest.shouldNotBeLoginWithoutLoginAndPassword(CourierLoginTest.java:105)
+
+shouldNotBeLoginWithoutPassword(ru.praktikum_sevices.qa_scooter.courier.CourierLoginTest)  Time elapsed: 60.69 s  <<< FAILURE!
+java.lang.AssertionError: 
+Статус код не 400
+Expected: <400>
+     but: was <504>
+	at ru.praktikum_sevices.qa_scooter.courier.CourierLoginTest.shouldNotBeLoginWithoutPassword(CourierLoginTest.java:87)
+

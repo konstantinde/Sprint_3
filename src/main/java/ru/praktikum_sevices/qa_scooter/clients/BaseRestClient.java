@@ -24,11 +24,4 @@ public class BaseRestClient {
                 .setBaseUri(BASE_URL)
                 .build();
     }
-
-     RequestConfig requestConfig = RequestConfig.custom()
-                .setConnectTimeout(5000)
-                .setConnectionRequestTimeout(5000)
-                .setSocketTimeout(5000)
-                .build();
-
 }

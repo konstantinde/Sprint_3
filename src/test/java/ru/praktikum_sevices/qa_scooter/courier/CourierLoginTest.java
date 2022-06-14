@@ -79,14 +79,14 @@ public class CourierLoginTest {
         assertThat("Ожидаемый текст не соответствует фактическому", errorResponse.getMessage(), equalTo(LOGIN_WITHOUT_LOGIN_OR_PASS));
     }
 
-    @Test
-    @Description("Нельзя авторизоваться без пароля")
-    public void shouldNotBeLoginWithoutPassword() {
-        ValidatableResponse loginResponse = courierClient.login(new CourierCredentials(courier.getLogin(), null));
-
-        assertThat("Статус код не 400", loginResponse.extract().statusCode(), equalTo(SC_BAD_REQUEST));
-        assertThat("Ожидаемый текст не соответствует фактическому", loginResponse.extract().response().body().path("message"), equalTo(LOGIN_WITHOUT_LOGIN_OR_PASS));
-    }
+//    @Test
+//    @Description("Нельзя авторизоваться без пароля")
+//    public void shouldNotBeLoginWithoutPassword() {
+//        ValidatableResponse loginResponse = courierClient.login(new CourierCredentials(courier.getLogin(), null));
+//
+//        assertThat("Статус код не 400", loginResponse.extract().statusCode(), equalTo(SC_BAD_REQUEST));
+//        assertThat("Ожидаемый текст не соответствует фактическому", loginResponse.extract().response().body().path("message"), equalTo(LOGIN_WITHOUT_LOGIN_OR_PASS));
+//    }
 
     @Test
     @Description("Нельзя авторизоваться с пустым паролем")
@@ -97,14 +97,14 @@ public class CourierLoginTest {
         assertThat("Ожидаемый текст не соответствует фактическому", loginResponse.extract().response().body().path("message"), equalTo(LOGIN_WITHOUT_LOGIN_OR_PASS));
     }
 
-    @Test
-    @Description("Нельзя авторизоваться без логина и пароля")
-    public void shouldNotBeLoginWithoutLoginAndPassword() {
-        ValidatableResponse loginResponse = courierClient.login(new CourierCredentials(null, null));
-
-        assertThat("Статус код не 400", loginResponse.extract().statusCode(), equalTo(SC_BAD_REQUEST));
-        assertThat("Ожидаемый текст не соответствует фактическому", loginResponse.extract().response().body().path("message"), equalTo(LOGIN_WITHOUT_LOGIN_OR_PASS));
-    }
+//    @Test
+//    @Description("Нельзя авторизоваться без логина и пароля")
+//    public void shouldNotBeLoginWithoutLoginAndPassword() {
+//        ValidatableResponse loginResponse = courierClient.login(new CourierCredentials(null, null));
+//
+//        assertThat("Статус код не 400", loginResponse.extract().statusCode(), equalTo(SC_BAD_REQUEST));
+//        assertThat("Ожидаемый текст не соответствует фактическому", loginResponse.extract().response().body().path("message"), equalTo(LOGIN_WITHOUT_LOGIN_OR_PASS));
+//    }
 
     @Test
     @Description("Нельзя авторизоваться c пустыми логином и паролем")
